@@ -1,14 +1,17 @@
 # Fdb version 4
-["bibtex template"] 1773657288.26214 "template.aux" "template.bbl" "template" 1773657293.12036 0
-  "./references.bib" 1773657234 954 f28d9c92be8a79c7f9924c5ce8b7b771 ""
+["bibtex build/main"] 0 "build/main.aux" "build/main.bbl" "build/main" 0 0
+  "build/main.aux" 0 -1 0 "pdflatex"
   "c:/texlive/2025/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1760813172 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "template.aux" 1773657291 2259 30aee3593e6ddadb5cc84bbf3f3bb70f "pdflatex"
+  "references.bib" 0 -1 0 ""
   (generated)
-  "template.bbl"
-  "template.blg"
+  "build/main.bbl"
+  "build/main.blg"
   (rewritten before read)
-["pdflatex"] 1773657289.11783 "c:/Cong Viec/Master's/Year 1/Intelligent Systems and Services/Project/Doc/template.tex" "template.pdf" "template" 1773657293.12159 0
+["pdflatex"] 1773657977.1825 "c:/Cong Viec/Master's/Year 1/Intelligent Systems and Services/Project/Doc/template.tex" "build/main.pdf" "main" 1773657981.2781 0
   "arxiv.sty" 1773657234 7641 73d629a9ecdf79da8148f7f0df8c6662 ""
+  "build/main.aux" 1773657979 2030 db5bbcd2a996b9319b66b0760588ae68 "pdflatex"
+  "build/main.bbl" 0 -1 0 "bibtex build/main"
+  "build/main.out" 1773657979 1279 714624116516826c39223a9d8aa52f22 "pdflatex"
   "c:/Cong Viec/Master's/Year 1/Intelligent Systems and Services/Project/Doc/template.tex" 1773657234 5918 d07ba615222dc65d7661a02837892c43 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1760810127 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1760809375 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -128,13 +131,10 @@
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1760817488 3629008 c9cef0ecf46e3d2a0452e875bb8f79d7 ""
   "c:/texlive/2025/texmf.cnf" 1760816987 713 e69b156964470283e0530f5060668171 ""
   "orcid.pdf" 1773657234 12397 91d5d508c0f091a7cee0cca88f1680c0 ""
-  "template.aux" 1773657291 2259 30aee3593e6ddadb5cc84bbf3f3bb70f "pdflatex"
-  "template.bbl" 1773657289 1289 811f2f10a4c9526928889f337bf96170 "bibtex template"
-  "template.out" 1773657291 1279 714624116516826c39223a9d8aa52f22 "pdflatex"
   "template.tex" 1773657234 5918 d07ba615222dc65d7661a02837892c43 ""
   (generated)
-  "template.aux"
-  "template.log"
-  "template.out"
-  "template.pdf"
+  "build/main.aux"
+  "build/main.log"
+  "build/main.out"
+  "build/main.pdf"
   (rewritten before read)
