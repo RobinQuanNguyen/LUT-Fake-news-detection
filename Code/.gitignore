@@ -3,3 +3,4 @@ data/news_cleaned_2018_02_13.csv
 data/processed_fakenews.csv
 example.py
 example2.py
+check.py
