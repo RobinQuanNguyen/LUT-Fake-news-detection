@@ -26,12 +26,119 @@ Note:
 
 Runs for about 5 hours:
 [2026-03-20 14:44:53] Chunk 171: done in 45.1s | rows_written=5,917,423 | vocab_before=2,754,697 | vocab_after_stop=2,754,544 | vocab_after_stem=2,393,215
-[2026-03-20 14:44:54] Rows seen: 8,528,956
+[2026-03-20 14:44:54] Rows seen: 8,529,090
 [2026-03-20 14:44:54] Rows written: 5,917,423
-[2026-03-20 14:44:54] Vocabulary before stopwords: 2,754,697
-[2026-03-20 14:44:54] Vocabulary after stopwords: 2,754,544
-[2026-03-20 14:44:54] Stopword reduction rate: 0.01%
-[2026-03-20 14:44:54] Vocabulary after stemming: 2,393,215
-[2026-03-20 14:44:54] Stemming reduction rate: 13.12%
 
-Note: the data above is a bit off-track. Will update the new one later.
+
+===== FINAL STATS =====
+Total rows seen: 8,529,090
+Total rows counted after pipeline filtering: 5,917,423
+Total token count before stopwords: 2,650,426,393
+Total token count after stopwords: 1,492,810,996
+Total removed stopword tokens: 1,157,615,397
+
+The audit pass over the filtered corpus counted 2.65 billion tokens before stopword removal and 1.49 billion after stopword removal, meaning 1.16 billion stopword tokens were removed, or approximately 43.7% of all tokens. The most frequent tokens before removal were standard English function words such as “the”, “to”, “of”, and “and”, while after removal the distribution shifted toward content-bearing terms such as “said”, “people”, “trump”, and “president”. This indicates the stopword removal stage functioned as intended.
+
+Top 50 frequent tokens BEFORE stopwords:
+the     150,477,735
+to      72,644,134
+of      72,516,047
+and     65,503,035
+a       56,925,324
+in      50,230,099
+that    33,040,151
+is      30,450,190
+s       28,921,184
+for     24,812,217
+it      21,053,887
+on      20,564,758
+as      16,255,652
+with    15,904,886
+are     14,744,116
+i       14,644,085
+was     13,642,480
+this    13,607,040
+be      12,870,272
+by      12,840,830
+at      12,727,531
+have    12,537,153
+not     12,040,702
+from    11,936,913
+you     11,675,763
+he      11,587,535
+they    10,078,089
+we      9,913,025
+has     9,681,756
+an      9,621,119
+but     9,368,577
+his     9,174,887
+or      8,999,842
+will    8,130,543
+who     7,806,502
+t       7,611,451
+their   7,329,244
+said    7,118,332
+more    6,725,236
+one     6,470,302
+all     6,462,853
+about   6,404,935
+which   6,110,604
+can     5,998,937
+if      5,897,942
+what    5,562,033
+would   5,527,429
+people  5,469,876
+been    5,415,230
+there   5,316,423
+
+Top 50 frequent tokens AFTER stopwords:
+said    7,118,332
+one     6,470,302
+would   5,527,429
+people  5,469,876
+new     5,087,870
+also    4,086,176
+like    3,991,674
+us      3,880,851
+time    3,775,164
+year    3,478,026
+trump   3,396,741
+even    3,203,043
+news    3,134,698
+president       3,105,712
+iran    3,085,909
+state   3,012,556
+first   2,980,749
+many    2,814,182
+could   2,800,148
+two     2,797,047
+government      2,787,357
+years   2,721,199
+world   2,654,065
+may     2,637,540
+get     2,503,169
+last    2,474,842
+obama   2,405,970
+u       2,405,950
+iranian 2,360,025
+states  2,338,574
+public  2,332,833
+see     2,330,750
+right   2,293,289
+back    2,266,504
+day     2,254,299
+well    2,239,454
+make    2,159,316
+made    2,127,245
+know    2,111,568
+american        2,084,771
+way     2,045,736
+use     2,016,873
+going   1,993,454
+much    1,989,814
+health  1,922,440
+war     1,905,831
+system  1,904,603
+com     1,826,055
+recs    1,803,027
+think   1,801,509
