@@ -4,3 +4,6 @@ data/processed_fakenews.csv
 example.py
 example2.py
 check.py
+venv/
+data/
+!data/split_report.txt

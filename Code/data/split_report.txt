@@ -1,0 +1,25 @@
+==============================================================
+TASK 3 — DATA SPLIT REPORT
+==============================================================
+Input file         : data\processed_fakenews.csv
+Total rows (dedup) : 4,312,148
+Training rows      : 3,449,718  (80.0%)
+Validation rows    : 431,215  (10.0%)
+Test rows          : 431,215  (10.0%)
+Random seed        : 42
+Split strategy     : Stratified random split (scikit-learn)
+
+Class                       Full     Train       Val      Test
+--------------------------------------------------------------
+bias                     608,809   487,047    60,881    60,881
+clickbait                139,912   111,930    13,991    13,991
+conspiracy               369,321   295,457    36,932    36,932
+fake                     432,311   345,849    43,231    43,231
+hate                      56,408    45,126     5,641     5,641
+junksci                   64,085    51,268     6,408     6,409
+political                826,743   661,394    82,675    82,674
+reliable               1,114,003   891,202   111,400   111,401
+rumor                    359,531   287,625    35,953    35,953
+satire                    72,301    57,841     7,230     7,230
+unknown                  182,419   145,935    18,242    18,242
+unreliable                86,305    69,044     8,631     8,630
