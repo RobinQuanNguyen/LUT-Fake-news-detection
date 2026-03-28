@@ -142,3 +142,57 @@ system  1,904,603
 com     1,826,055
 recs    1,803,027
 think   1,801,509
+
+## Task 3
+
+### What was done
+Split the cleaned dataset (`processed_fakenews.csv` from Task 1) into
+three sets for model training, tuning, and evaluation:
+- Training set: 80% → 3,449,718 rows
+- Validation set: 10% → 431,215 rows
+- Test set: 10% → 431,215 rows
+
+### Steps taken for task 3
+**1. Load & drop NaN rows**
+Loaded only the three necessary columns (`id`, `type`, `processed_text`).
+Dropped 320,760 rows with missing label or text as these can't be used
+for training or evaluation.
+
+**2. Deduplication (before splitting)**
+Removed 1,284,515 duplicate articles (22.95%) using MD5 hashing instead
+of pandas drop_duplicates() to keep memory usage low on 8GB RAM.
+
+**Why before splitting:** if the same article ends up in both train and test,
+the model effectively "sees" test data during training, inflating scores
+and making results untrustworthy.
+
+**3. Stratified random split**
+Used scikit-learn's train_test_split() with stratify=type in two steps:
+- Step A: full dataset -> train (80%) + temp (20%)
+- Step B: temp -> val (10%) + test (10%)
+
+**Why stratified:** the dataset is heavily imbalanced across 12 classes
+(e.g. reliable=25.83%, hate=1.31%). A plain random split could
+accidentally under-represent rare classes in the test set. Stratification
+guarantees every split mirrors the full dataset's class proportions exactly.
+
+**Why random seed (42):** ensures the exact same splits are reproduced
+every time the script is run, making results reproducible for the team.
+
+**4. Verification**
+Two checks before saving:
+- Size check: all rows accounted for (no rows lost or duplicated)
+- Overlap check: no article appears in more than one split
+- Both checks PASSED.
+
+### Output files
+- `data/train.csv` — model learns from this
+- `data/validate.csv` — used to tune and compare models
+- `data/test.csv` — final evaluation only, touched once at the end
+- `data/split_report.txt` — full per-class breakdown across all splits
+
+### Key results
+- Duplicates removed: 1,284,515 (22.95%) confirmed Task 2's finding
+  that the corpus contains significant duplicate/syndicated content
+- 12 classes all perfectly proportioned across train/val/test
+- Final dataset after dedup: 4,312,148 rows
