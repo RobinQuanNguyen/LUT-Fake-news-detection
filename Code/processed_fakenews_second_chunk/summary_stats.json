@@ -1,0 +1,36 @@
+{
+  "rows_seen": 591742,
+  "rows_analyzed": 591742,
+  "rows_missing_content": 0,
+  "duplicate_content_rows": 74503,
+  "duplicate_content_rate": 0.12590453271865104,
+  "unique_contents": 517239,
+  "token_stats": {
+    "count": 591742,
+    "mean": 447.7386479242643,
+    "std": 385.79317696163156,
+    "min": 30,
+    "max": 2850
+  },
+  "url_stats": {
+    "count": 591742,
+    "mean": 0.2193574226605514,
+    "std": 1.00830340746633,
+    "min": 0,
+    "max": 93
+  },
+  "date_stats": {
+    "count": 591742,
+    "mean": 0.6004458023936108,
+    "std": 1.732215300414361,
+    "min": 0,
+    "max": 126
+  },
+  "number_stats": {
+    "count": 591742,
+    "mean": 8.050826204663519,
+    "std": 15.714648039174701,
+    "min": 0,
+    "max": 3210
+  }
+}
