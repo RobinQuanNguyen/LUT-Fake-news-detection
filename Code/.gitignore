@@ -7,3 +7,4 @@ check.py
 venv/
 data/
 !data/split_report.txt
+test/
