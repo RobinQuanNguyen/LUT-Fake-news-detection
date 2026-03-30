@@ -1,5 +1,5 @@
 '''
-Task 3 - Split the data into train, validate and test sets
+Part 2 Task 3 - Split the data into train, validate and test sets
 80% training, 10% validation, 10% test
 
 Input: data/processed_fakenews.csv
