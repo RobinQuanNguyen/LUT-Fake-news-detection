@@ -1,0 +1,23 @@
+==============================================================
+NAIVE BAYES + METADATA — RESULTS REPORT
+==============================================================
+
+Model        : Multinomial Naive Bayes
+Alpha        : 0.1  (Laplace smoothing)
+Vectorizer   : TF-IDF
+Max features : 10,000
+Sublinear TF : True
+
+Metadata approach : Option A (append domain/title/authors to text)
+Extra columns     : domain, title, authors
+
+Label mapping:
+  Reliable (1) : reliable
+  Fake     (0) : fake, unreliable, conspiracy, rumor,
+                 junksci, clickbait, hate, satire
+  Dropped      : political, bias, unknown
+
+Split          Accuracy  Precision     Recall         F1
+--------------------------------------------------------
+validation       0.9148     0.8976     0.9649     0.9300
+test             0.9155     0.8984     0.9650     0.9305
