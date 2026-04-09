@@ -1,0 +1,76 @@
+LIAR Test Results
+------------------------------
+Accuracy : 0.5489
+Precision: 0.5642
+Recall   : 0.8029
+F1-score : 0.6627
+
+Confusion matrix:
+[[106 343]
+ [109 444]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.49      0.24      0.32       449
+        fake       0.56      0.80      0.66       553
+
+    accuracy                           0.55      1002
+   macro avg       0.53      0.52      0.49      1002
+weighted avg       0.53      0.55      0.51      1002
+------------------------------
+Accuracy : 0.5489
+Precision: 0.5642
+Recall   : 0.8029
+F1-score : 0.6627
+
+Confusion matrix:
+[[106 343]
+ [109 444]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.49      0.24      0.32       449
+        fake       0.56      0.80      0.66       553
+
+------------------------------
+Accuracy : 0.5489
+Precision: 0.5642
+Recall   : 0.8029
+F1-score : 0.6627
+
+Confusion matrix:
+[[106 343]
+ [109 444]]
+
+Classification report:
+------------------------------
+Accuracy : 0.5489
+Precision: 0.5642
+Recall   : 0.8029
+F1-score : 0.6627
+------------------------------
+Accuracy : 0.5489
+Precision: 0.5642
+------------------------------
+------------------------------
+------------------------------
+Accuracy : 0.5489
+Precision: 0.5642
+Recall   : 0.8029
+F1-score : 0.6627
+
+Confusion matrix:
+[[106 343]
+ [109 444]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.49      0.24      0.32       449
+        fake       0.56      0.80      0.66       553
+
+    accuracy                           0.55      1002
+   macro avg       0.53      0.52      0.49      1002
+weighted avg       0.53      0.55      0.51      1002

@@ -1,0 +1,121 @@
+====================================================================
+FINAL MODEL SETUP
+====================================================================
+Model type          : Fine-tuned RoBERTa-base
+Pretrained model    : roberta-base
+Feature source      : processed_text only
+Classification task : Binary (reliable=0, fake=1)
+Max sequence length : 128
+Optimizer settings  : learning_rate=2e-5, weight_decay=0.01
+Training settings   : epochs=1, batch_size=8, fp16=True
+Selection metric    : Validation F1-score (binary)
+Random seed         : 42
+Stratified sampling : True
+Train sample frac   : 0.5
+
+Loaded data/no_metadata/train.csv
+Rows kept: 2155342
+Class counts:
+label
+reliable     891202
+fake        1264140
+Name: count, dtype: int64
+
+Loaded data/no_metadata/validate.csv
+Rows kept: 269417
+Class counts:
+label
+reliable    111400
+fake        158017
+Name: count, dtype: int64
+
+Loaded data/no_metadata/test.csv
+Rows kept: 269418
+Class counts:
+label
+reliable    111401
+fake        158017
+Name: count, dtype: int64
+
+Original train class distribution:
+reliable: 891,202 (41.35%)
+fake    : 1,264,140 (58.65%)
+
+Original validation class distribution:
+reliable: 111,400 (41.35%)
+fake    : 158,017 (58.65%)
+
+Original test class distribution:
+reliable: 111,401 (41.35%)
+fake    : 158,017 (58.65%)
+
+After sampling:
+Train size     : 1,077,671
+Validation size: 269,417
+Test size      : 269,418
+
+Sampled train class distribution:
+classifier.dense.weight         | MISSING    |
+classifier.out_proj.weight      | MISSING    |
+classifier.dense.bias           | MISSING    |
+classifier.out_proj.bias        | MISSING    |
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+
+Starting training...
+ 20%|█████████████████████▉                                                                                       20%|████████████▊                                                   | 26921/134709 [1:30:18<9:34:49,  3.1 21%|███████████████████████████████████▉                                                                                         21%|██████████████▏                                                    | 28440/134709 [1:34:56<8:28:44,  3.48it/s]  21%|███████████ 27%|█████████████████████████████▊                                                   27%|█████████████████▏                                              | 36111/134709 [2:00:59 27%|█████████████████████████████████████████████▌                                                                                                         27%|█████████████████▉                                                 | 36150/134709 [2:01:08<7:12:17,  3.80it/s]                                  27%|█████████████████████████████▊                       27%|█████████████████▏                                              | 36157/1 27%|█████████████████████████████████████████████▋                                                                                                                            | 3623 27%|██████████████████                                                 | 36236/134709 [2:01:25<6:30:26,  4.20it/s]  27%|██████████████████                         {'loss': '0.2313', 'grad_norm': '0.2552', 'learning_rate': '9.057e-09', 'epoch': '1'}
+{'eval_loss': '0.2283', 'eval_accuracy': '0.9515', 'eval_precision': '0.9671', 'eval_recall': '0.9497', 'eval_f1': '0.9583', 'eval_runtime': '1425', 'eval_samples_per_second': '189.1', 'eval_steps_per_second': '23.64', 'epoch': '1'}
+Writing model shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.19it/s]
+{'train_runtime': '2.679e+04', 'train_samples_per_second': '40.22', 'train_steps_per_second': '5.028', 'train_loss': '0.2313', 'epoch': '1'}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 134709/134709 [7:26:32<00:00,  4.87it/s]There were missing keys in the checkpoint model loaded: ['roberta.embeddings.LayerNorm.weight', 'roberta.embeddings.LayerNorm.bias', 'roberta.encoder.layer.0.attention.output.LayerNorm.weight', 'roberta.encoder.layer.0.attention.output.LayerNorm.bias', 'roberta.encoder.layer.0.output.LayerNorm.weight', 'roberta.encoder.layer.0.output.LayerNorm.bias', 'roberta.encoder.layer.1.attention.output.LayerNorm.weight', 'roberta.encoder.layer.1.attention.output.LayerNorm.bias', 'roberta.encoder.layer.1.output.LayerNorm.weight', 'roberta.encoder.layer.1.output.LayerNorm.bias', 'roberta.encoder.layer.2.attention.output.LayerNorm.weight', 'roberta.encoder.layer.2.attention.output.LayerNorm.bias', 'roberta.encoder.layer.2.output.LayerNorm.weight', 'roberta.encoder.layer.2.output.LayerNorm.bias', 'roberta.encoder.layer.3.attention.output.LayerNorm.weight', 'roberta.encoder.layer.3.attention.output.LayerNorm.bias', 'roberta.encoder.layer.3.output.LayerNorm.weight', 'roberta.encoder.layer.3.output.LayerNorm.bias', 'roberta.encoder.layer.4.attention.output.LayerNorm.weight', 'roberta.encoder.layer.4.attention.output.LayerNorm.bias', 'roberta.encoder.layer.4.output.LayerNorm.weight', 'roberta.encoder.layer.4.output.LayerNorm.bias', 'roberta.encoder.layer.5.attention.output.LayerNorm.weight', 'roberta.encoder.layer.5.attention.output.LayerNorm.bias', 'roberta.encoder.layer.5.output.LayerNorm.weight', 'roberta.encoder.layer.5.output.LayerNorm.bias', 'roberta.encoder.layer.6.attention.output.LayerNorm.weight', 'roberta.encoder.layer.6.attention.output.LayerNorm.bias', 'roberta.encoder.layer.6.output.LayerNorm.weight', 'roberta.encoder.layer.6.output.LayerNorm.bias', 'roberta.encoder.layer.7.attention.output.LayerNorm.weight', 'roberta.encoder.layer.7.attention.output.LayerNorm.bias', 'roberta.encoder.layer.7.output.LayerNorm.weight', 'roberta.encoder.layer.7.output.LayerNorm.bias', 'roberta.encoder.layer.8.attention.output.LayerNorm.weight', 'roberta.encoder.layer.8.attention.output.LayerNorm.bias', 'roberta.encoder.layer.8.output.LayerNorm.weight', 'roberta.encoder.layer.8.output.LayerNorm.bias', 'roberta.encoder.layer.9.attention.output.LayerNorm.weight', 'roberta.encoder.layer.9.attention.output.LayerNorm.bias', 'roberta.encoder.layer.9.output.LayerNorm.weight', 'roberta.encoder.layer.9.output.LayerNorm.bias', 'roberta.encoder.layer.10.attention.output.LayerNorm.weight', 'roberta.encoder.layer.10.attention.output.LayerNorm.bias', 'roberta.encoder.layer.10.output.LayerNorm.weight', 'roberta.encoder.layer.10.output.LayerNorm.bias', 'roberta.encoder.layer.11.attention.output.LayerNorm.weight', 'roberta.encoder.layer.11.attention.output.LayerNorm.bias', 'roberta.encoder.layer.11.output.LayerNorm.weight', 'roberta.encoder.layer.11.output.LayerNorm.bias'].
+There were unexpected keys in the checkpoint model loaded: ['roberta.embeddings.LayerNorm.beta', 'roberta.embeddings.LayerNorm.gamma', 'roberta.encoder.layer.0.attention.output.LayerNorm.beta', 'roberta.encoder.layer.0.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.0.output.LayerNorm.beta', 'roberta.encoder.layer.0.output.LayerNorm.gamma', 'roberta.encoder.layer.1.attention.output.LayerNorm.beta', 'roberta.encoder.layer.1.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.1.output.LayerNorm.beta', 'roberta.encoder.layer.1.output.LayerNorm.gamma', 'roberta.encoder.layer.2.attention.output.LayerNorm.beta', 'roberta.encoder.layer.2.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.2.output.LayerNorm.beta', 'roberta.encoder.layer.2.output.LayerNorm.gamma', 'roberta.encoder.layer.3.attention.output.LayerNorm.beta', 'roberta.encoder.layer.3.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.3.output.LayerNorm.beta', 'roberta.encoder.layer.3.output.LayerNorm.gamma', 'roberta.encoder.layer.4.attention.output.LayerNorm.beta', 'roberta.encoder.layer.4.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.4.output.LayerNorm.beta', 'roberta.encoder.layer.4.output.LayerNorm.gamma', 'roberta.encoder.layer.5.attention.output.LayerNorm.beta', 'roberta.encoder.layer.5.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.5.output.LayerNorm.beta', 'roberta.encoder.layer.5.output.LayerNorm.gamma', 'roberta.encoder.layer.6.attention.output.LayerNorm.beta', 'roberta.encoder.layer.6.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.6.output.LayerNorm.beta', 'roberta.encoder.layer.6.output.LayerNorm.gamma', 'roberta.encoder.layer.7.attention.output.LayerNorm.beta', 'roberta.encoder.layer.7.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.7.output.LayerNorm.beta', 'roberta.encoder.layer.7.output.LayerNorm.gamma', 'roberta.encoder.layer.8.attention.output.LayerNorm.beta', 'roberta.encoder.layer.8.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.8.output.LayerNorm.beta', 'roberta.encoder.layer.8.output.LayerNorm.gamma', 'roberta.encoder.layer.9.attention.output.LayerNorm.beta', 'roberta.encoder.layer.9.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.9.output.LayerNorm.beta', 'roberta.encoder.layer.9.output.LayerNorm.gamma', 'roberta.encoder.layer.10.attention.output.LayerNorm.beta', 'roberta.encoder.layer.10.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.10.output.LayerNorm.beta', 'roberta.encoder.layer.10.output.LayerNorm.gamma', 'roberta.encoder.layer.11.attention.output.LayerNorm.beta', 'roberta.encoder.layer.11.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.11.output.LayerNorm.beta', 'roberta.encoder.layer.11.output.LayerNorm.gamma'].
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 134709/134709 [7:26:33<00:00,  5.03it/s]
+
+Evaluating best checkpoint...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33678/33678 [23:14<00:00, 24.15it/s]
+
+Validation results
+------------------------------
+Accuracy : 0.9515
+Precision: 0.9671
+Recall   : 0.9497
+F1-score : 0.9583
+
+Confusion matrix:
+[[106290   5110]
+ [  7953 150064]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.93      0.95      0.94    111400
+        fake       0.97      0.95      0.96    158017
+
+    accuracy                           0.95    269417
+   macro avg       0.95      0.95      0.95    269417
+weighted avg       0.95      0.95      0.95    269417
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33678/33678 [23:23<00:00, 24.00it/s]
+
+Test results
+------------------------------
+Accuracy : 0.9513
+Precision: 0.9669
+Recall   : 0.9495
+F1-score : 0.9581
+
+Confusion matrix:
+[[106260   5141]
+ [  7987 150030]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.93      0.95      0.94    111401
+        fake       0.97      0.95      0.96    158017
+
+    accuracy                           0.95    269418
+   macro avg       0.95      0.95      0.95    269418
+weighted avg       0.95      0.95      0.95    269418
