@@ -1,0 +1,56 @@
+==============================================================
+BASELINE MODEL SETUP
+==============================================================
+Model type          : TF-IDF + Logistic Regression
+Feature sources     : processed_text + domain + title + authors
+processed_text TFIDF: lowercase=True, stop_words='english',
+                      ngram_range=(1, 2), min_df=2, max_df=0.95
+domain TFIDF        : lowercase=True, ngram_range=(1, 1)
+title TFIDF         : lowercase=True, stop_words='english',
+                      ngram_range=(1, 2), min_df=2, max_df=0.95
+authors TFIDF       : lowercase=True, stop_words='english',
+                      ngram_range=(1, 2), min_df=2, max_df=0.95
+Classifier params   : solver='liblinear', max_iter=1000, random_state=42
+Hyperparameter grid : C in [0.01, 0.1, 1, 10]
+Selection metric    : Validation F1-score (binary)
+Validation F1 for C=0.01: 0.9945
+Validation F1 for C=0.1: 0.9961
+Validation F1 for C=1: 0.9981
+Validation F1 for C=10: 0.9987
+Best C selected on validation set: 10
+Best validation F1: 0.9987
+
+Validation results
+------------------------------
+Accuracy : 0.9985
+Precision: 0.9993
+Recall   : 0.9981
+F1-score : 0.9987
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       1.00      1.00      1.00    111400
+        fake       1.00      1.00      1.00    158017
+
+    accuracy                           1.00    269417
+   macro avg       1.00      1.00      1.00    269417
+weighted avg       1.00      1.00      1.00    269417
+
+
+Test results
+------------------------------
+Accuracy : 0.9982
+Precision: 0.9992
+Recall   : 0.9978
+F1-score : 0.9985
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       1.00      1.00      1.00    111401
+        fake       1.00      1.00      1.00    158017
+
+    accuracy                           1.00    269418
+   macro avg       1.00      1.00      1.00    269418
+weighted avg       1.00      1.00      1.00    269418

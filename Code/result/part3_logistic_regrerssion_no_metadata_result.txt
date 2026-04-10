@@ -1,0 +1,95 @@
+==============================================================
+BASELINE MODEL SETUP
+==============================================================
+Model type          : TF-IDF + Logistic Regression
+Feature source      : processed_text only
+Vectorizer params   : lowercase=True, stop_words='english',
+                      ngram_range=(1, 2), min_df=2, max_df=0.95
+Classifier params   : solver='liblinear', max_iter=1000, random_state=42
+Hyperparameter grid : C in [0.01, 0.1, 1, 10]
+Selection metric    : Validation F1-score (binary)
+Validation F1 for C=0.01: 0.9218
+Validation F1 for C=0.1: 0.9507
+Validation F1 for C=1: 0.9695
+Validation F1 for C=10: 0.9786
+
+Best C selected on validation set: 10
+Best validation F1: 0.9786
+
+Validation results
+------------------------------
+Accuracy : 0.9748
+Precision: 0.9745
+Recall   : 0.9826
+F1-score : 0.9786
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.98      0.96      0.97    111400
+        fake       0.97      0.98      0.98    158017
+
+    accuracy                           0.97    269417
+   macro avg       0.97      0.97      0.97    269417
+weighted avg       0.97      0.97      0.97    269417
+
+
+Test results
+------------------------------
+------------------------------
+Accuracy : 0.9745
+Precision: 0.9742
+Recall   : 0.9826
+F1-score : 0.9784
+
+Classification report:
+              precision    recall  f1-score   support
+------------------------------
+Accuracy : 0.9745
+Precision: 0.9742
+Recall   : 0.9826
+F1-score : 0.9784
+
+Classification report:
+------------------------------
+Accuracy : 0.9745
+Precision: 0.9742
+Recall   : 0.9826
+F1-score : 0.9784
+
+------------------------------
+Accuracy : 0.9745
+Precision: 0.9742
+Recall   : 0.9826
+F1-score : 0.9784
+------------------------------
+Accuracy : 0.9745
+Precision: 0.9742
+Recall   : 0.9826
+------------------------------
+Accuracy : 0.9745
+Precision: 0.9742
+Recall   : 0.9826
+------------------------------
+Accuracy : 0.9745
+Precision: 0.9742
+------------------------------
+Accuracy : 0.9745
+Accuracy : 0.9745
+Precision: 0.9742
+Precision: 0.9742
+Recall   : 0.9826
+F1-score : 0.9784
+Recall   : 0.9826
+F1-score : 0.9784
+
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.97      0.96      0.97    111401
+        fake       0.97      0.98      0.98    158017
+
+    accuracy                           0.97    269418
+   macro avg       0.97      0.97      0.97    269418
+weighted avg       0.97      0.97      0.97    269418
