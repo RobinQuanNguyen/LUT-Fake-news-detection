@@ -1,13 +1,12 @@
 # Simple Baseline Models — Naive Bayes
 **Branch:** `simple_model/naiveBayes`  
-**Author:** Thet  
-**Tasks covered:** Part 2 Task 0, Task 1, Task 2
+**Tasks covered:** Part 3 Task 0, Task 1, Task 2
 
 ---
 
 ## What we built and why
 
-### Task 0 — Label grouping
+### Part 3 Task 0 — Label grouping
 The FakeNewsCorpus has 12 classes. We grouped them into binary labels for fake news detection:
 
 | Group | Labels |
@@ -26,11 +25,11 @@ These labels are too ambiguous — a politically biased article is not necessari
 
 ---
 
-### Task 1 — Text-only Naive Bayes baseline (`part2_t1.py`)
+### Part 3 Task 1 — Text-only Naive Bayes baseline (`part3_t1_naivebayes.py`)
 
 **Model:** Multinomial Naive Bayes  
 **Vectorizer:** TF-IDF (Term Frequency — Inverse Document Frequency)  
-**Features:** `processed_text` only (stemmed, stopwords removed from Part 1)
+**Features:** `processed_text` only (stemmed, stopwords removed from Part 2 Task 1 & 2)
 
 **Why Naive Bayes?**
 - Fast to train even on millions of rows
@@ -53,7 +52,7 @@ The goal is fake news detection. Missing a fake article (false negative) is more
 
 ---
 
-### Task 2 — Naive Bayes with metadata (`part2_t2.py`)
+### Part 3 Task 2 — Naive Bayes with metadata (`part3_t1_naivebayes_meta.py`)
 
 **Model:** Multinomial Naive Bayes (same as Task 1)  
 **Extra features:** `domain`, `title`, `authors` appended to `processed_text`
@@ -61,11 +60,11 @@ The goal is fake news detection. Missing a fake article (false negative) is more
 **Why metadata?**
 Fake news sites have very distinctive domain names (e.g. `endoftheamericandream.com`, `infowars.com`). By prepending domain/title/authors to the article text before TF-IDF, the model can learn these signals.
 
-**Approach — Option A (text concatenation):**
+**Approach — Text concatenation:**
 ```
 combined = domain + " " + title + " " + authors + " " + processed_text
 ```
-Simple but effective — TF-IDF treats all words equally regardless of source.
+Simple but effective as TF-IDF treats all words equally regardless of source.
 
 **Supporting scripts:**
 - `merge_metadata.py` — extracts domain/title/authors from raw 27GB file and merges with `processed_fakenews.csv`
@@ -80,9 +79,9 @@ Simple but effective — TF-IDF treats all words equally regardless of source.
 pip install pandas scikit-learn numpy
 ```
 
-### Part 2 Task 1 — Text-only baseline
+### Part 3 Task 1 — Text-only baseline
 ```bash
-python part2_t1.py
+python part3_t1_naivebayes.py
 ```
 Input: `data/train.csv`, `data/validate.csv`, `data/test.csv`  
 Output: `outputs/naive_bayes_report.txt`
@@ -93,7 +92,7 @@ python merge_metadata.py
 ```
 Input: `data/news_cleaned_2018_02_13.csv` (27GB raw file), `data/processed_fakenews.csv`  
 Output: `data/processed_fakenews_with_meta.csv`  
-⚠️ Requires 27GB raw file — download from https://github.com/several27/FakeNewsCorpus/releases/tag/v1.0
+[IMPORTANT] Requires 27GB raw file — download from https://github.com/several27/FakeNewsCorpus/releases/tag/v1.0
 
 ### Part 2 Task 3 — Split metadata dataset
 ```bash
@@ -102,19 +101,22 @@ python part2_t3_meta.py
 Input: `data/processed_fakenews_with_meta.csv`  
 Output: `data/train_meta.csv`, `data/validate_meta.csv`, `data/test_meta.csv`
 
-### Part 2 Task 2 — Metadata baseline
+### Part 3 Task 2 — Metadata baseline
 ```bash
-python part2_t2.py
+python part3_t1_naivebayes_meta.py
 ```
 Input: `data/train_meta.csv`, `data/validate_meta.csv`, `data/test_meta.csv`  
 Output: `outputs/naive_bayes_meta_report.txt`
 
 ### Running on Google Colab
+
+First upload csv files in your Google Drive. 
 Update paths at the top of each script:
 ```python
-TRAIN_PATH = Path("/content/drive/My Drive/LUT-Fake News Detection/train.csv")
+TRAIN_PATH = Path("/content/drive/path-to-your-csv-files/train.csv")
 # etc.
 ```
+Replace with your actual paths to csv files in your Google Drive. 
 And replace `if __name__ == "__main__": main()` with just `main()` at the bottom.
 
 ---
@@ -156,7 +158,7 @@ The dataset is very large (5.9M rows, processed CSV ~2-3GB). On 8GB RAM laptops 
 
 | Problem | Solution |
 |---|---|
-| `drop_duplicates()` crashes on 8GB RAM | Switched to MD5 hash-based deduplication (see `part1_t3.py`) |
+| `drop_duplicates()` crashes on 8GB RAM | Switched to MD5 hash-based deduplication (see `part2_t3.py`) |
 | Loading full train.csv crashes during TF-IDF | Used `del train_df` after fitting to free RAM before loading val/test |
 | `combined_text` column doubles memory usage | Limit training data to 50% with `train_df.sample(frac=0.5)` |
 | 27GB raw file merge crashes | Used chunked reading + write directly to disk (see `merge_metadata.py`) |
