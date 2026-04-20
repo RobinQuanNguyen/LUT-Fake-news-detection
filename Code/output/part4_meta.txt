@@ -1,0 +1,17 @@
+============================================================
+DISTILBERT (WITH TITLE) - RESULTS REPORT
+============================================================
+Model         : DistilBERT
+Max length    : 256
+Batch size    : 16
+Epochs        : 3
+Learning rate : 2e-05
+Features      : processed_text + title
+
+Test Accuracy : 0.6655
+Test F1       : 0.6640
+Test Precision: 0.6647
+Test Recall   : 0.6655
+
+Training time : 8632.58s
+============================================================

@@ -1,0 +1,17 @@
+============================================================
+DISTILBERT - RESULTS REPORT (Text Only)
+============================================================
+Model         : DistilBERT
+Max length    : 256
+Batch size    : 16
+Epochs        : 3
+Learning rate : 2e-05
+Features      : processed_text
+
+Test Accuracy : 0.6110
+Test F1       : 0.6101
+Test Precision: 0.6156
+Test Recall   : 0.6110
+
+Training time : 8709.02s
+============================================================
