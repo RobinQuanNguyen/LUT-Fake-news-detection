@@ -1,0 +1,125 @@
+Writing run log to result\part3_logistic_regression_no_metadata_gpu_result.txt
+
+====================================================================
+BASELINE MODEL SETUP
+====================================================================
+Model type          : TF-IDF + Logistic Regression
+Feature source      : processed_text only
+Vectorizer params   : lowercase=True, stop_words='english',
+                      ngram_range=(1, 2), min_df=2, max_df=0.95
+Hyperparameter grid : C in [0.01, 0.1, 1, 10]
+Selection metric    : Validation F1-score (binary)
+Training backend    : PyTorch sparse logistic regression on cuda
+GPU train params    : epochs=1, batch_size=4096, lr=0.05
+Random seed         : 42
+
+Loaded data\no_metadata\train.csv
+Rows kept: 2,155,342
+Class counts:
+label
+reliable     891202
+fake        1264140
+Name: count, dtype: int64
+
+Loaded data\no_metadata\validate.csv
+Rows kept: 269,417
+Class counts:
+label
+reliable    111400
+fake        158017
+Name: count, dtype: int64
+
+Loaded data\no_metadata\test.csv
+Rows kept: 269,418
+Class counts:
+label
+reliable    111401
+fake        158017
+Name: count, dtype: int64
+
+Loaded data\evaluate\test.tsv
+Rows kept after binary mapping: 1,002
+Class counts:
+label
+reliable    449
+fake        553
+Name: count, dtype: int64
+
+Fitting preprocessor and saving to models\logreg_no_meta_preprocessor.joblib
+
+Transforming datasets into TF-IDF features...
+
+Training GPU model and saving to models\logreg_no_meta_torch.pt
+Validation F1 for C=0.01: 0.9797
+Validation F1 for C=0.1: 0.9797
+Validation F1 for C=1: 0.9797
+Validation F1 for C=10: 0.9797
+
+Best C selected on validation set: 0.01
+Best validation F1: 0.9797
+
+Validation results
+------------------------------
+Accuracy : 0.9762
+Precision: 0.9782
+Recall   : 0.9812
+F1-score : 0.9797
+
+Confusion matrix:
+[[107949   3451]
+ [  2967 155050]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.97      0.97      0.97    111400
+        fake       0.98      0.98      0.98    158017
+
+    accuracy                           0.98    269417
+   macro avg       0.98      0.98      0.98    269417
+weighted avg       0.98      0.98      0.98    269417
+
+
+FakeNewsCorpus test results
+------------------------------
+Accuracy : 0.9764
+Precision: 0.9782
+Recall   : 0.9816
+F1-score : 0.9799
+
+Confusion matrix:
+[[107946   3455]
+ [  2905 155112]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.97      0.97      0.97    111401
+        fake       0.98      0.98      0.98    158017
+
+    accuracy                           0.98    269418
+   macro avg       0.98      0.98      0.98    269418
+weighted avg       0.98      0.98      0.98    269418
+
+
+LIAR test results
+------------------------------
+Accuracy : 0.5419
+Precision: 0.5579
+Recall   : 0.8192
+F1-score : 0.6637
+
+Confusion matrix:
+[[ 90 359]
+ [100 453]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.47      0.20      0.28       449
+        fake       0.56      0.82      0.66       553
+
+    accuracy                           0.54      1002
+   macro avg       0.52      0.51      0.47      1002
+weighted avg       0.52      0.54      0.49      1002
+
