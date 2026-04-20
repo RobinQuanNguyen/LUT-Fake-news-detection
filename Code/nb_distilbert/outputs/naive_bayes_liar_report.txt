@@ -1,0 +1,17 @@
+==============================================================
+NAIVE BAYES — LIAR CROSS-DOMAIN EVALUATION REPORT
+==============================================================
+
+Model              : Multinomial Naive Bayes
+Alpha              : 0.1
+Vectorizer         : TF-IDF (max 100,000 features)
+Trained on         : FakeNewsCorpus
+Evaluated on       : LIAR dataset (test split)
+
+LIAR label mapping :
+  Reliable (1)     : true, mostly-true, half-true
+  Fake     (0)     : barely-true, false, pants-fire
+
+Split                  Accuracy  Precision     Recall         F1
+--------------------------------------------------------------
+LIAR-test                0.4412     0.4372     0.9765     0.6040

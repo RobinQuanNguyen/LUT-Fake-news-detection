@@ -1,0 +1,20 @@
+==============================================================
+NAIVE BAYES BASELINE - RESULTS REPORT
+==============================================================
+
+Model         : Multinomial Naive Bayes
+Alpha        : 0.1  (Laplace smoothing)
+Vectorizer   : TF-IDF
+Max features : 100,000
+Sublinear TF : True
+
+Label mapping  :
+Reliable (1)   : reliable
+Fake     (0)   : fake, unreliable, conspiracy, rumor,
+                 junksci, clickbait, hate, satire
+  Dropped      : political, bias, unknown
+
+Split          Accuracy  Precision     Recall         F1
+--------------------------------------------------------
+validation       0.8874     0.8805     0.9350     0.9069
+test             0.8882     0.8807     0.9363     0.9076
