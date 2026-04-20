@@ -7,3 +7,9 @@ check.py
 venv/
 data/
 !data/split_report.txt
+test/
+.venv/
+roberta_no_meta_output/
+__pycache__/
+models/
+storage/
