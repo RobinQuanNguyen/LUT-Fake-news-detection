@@ -1,5 +1,5 @@
 # Simple Baseline Models - Logistic Regression
-**Branch:** `simple_model/logisticRegression`  
+**Files:** `part3_t1_logistic_regression_no_meta_data.py`, `part3_t1_logistic_regression_meta_data.py`  
 **Tasks covered:** Part 3 Task 0, Task 1, Task 2
 
 ---

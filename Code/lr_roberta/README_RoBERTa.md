@@ -1,5 +1,5 @@
 # Advanced Model - RoBERTa Fake News Classifier
-**Branch:** `simple_model/logisticRegression`  
+**Files:** `part4_RoBERTa.py`, `part4_evaluate_roberta_on_liar.py`  
 **Tasks covered:** Part 4, LIAR cross-dataset evaluation
 
 ---
