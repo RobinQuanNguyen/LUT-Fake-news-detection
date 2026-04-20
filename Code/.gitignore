@@ -10,3 +10,6 @@ data/
 test/
 .venv/
 roberta_no_meta_output/
+__pycache__/
+models/
+result/

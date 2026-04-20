@@ -1,6 +1,6 @@
-==============================================================
+====================================================================
 BASELINE MODEL SETUP
-==============================================================
+====================================================================
 Model type          : TF-IDF + Logistic Regression
 Feature sources     : processed_text + domain + title + authors
 processed_text TFIDF: lowercase=True, stop_words='english',
@@ -10,22 +10,67 @@ title TFIDF         : lowercase=True, stop_words='english',
                       ngram_range=(1, 2), min_df=2, max_df=0.95
 authors TFIDF       : lowercase=True, stop_words='english',
                       ngram_range=(1, 2), min_df=2, max_df=0.95
-Classifier params   : solver='liblinear', max_iter=1000, random_state=42
 Hyperparameter grid : C in [0.01, 0.1, 1, 10]
 Selection metric    : Validation F1-score (binary)
-Validation F1 for C=0.01: 0.9945
-Validation F1 for C=0.1: 0.9961
-Validation F1 for C=1: 0.9981
-Validation F1 for C=10: 0.9987
-Best C selected on validation set: 10
-Best validation F1: 0.9987
+Training backend    : PyTorch sparse logistic regression on cuda
+GPU train params    : epochs=1, batch_size=4096, lr=0.05
+Random seed         : 42
+
+Loaded data\metadata\train_meta.csv
+Rows kept: 2,155,342
+Class counts:
+label
+reliable     891202
+fake        1264140
+Name: count, dtype: int64
+
+Loaded data\metadata\validate_meta.csv
+Rows kept: 269,417
+Class counts:
+label
+reliable    111400
+fake        158017
+Name: count, dtype: int64
+
+Loaded data\metadata\test_meta.csv
+Rows kept: 269,418
+Class counts:
+label
+reliable    111401
+fake        158017
+Name: count, dtype: int64
+
+Loaded data\evaluate\test.tsv
+Rows kept after binary mapping: 1,002
+Class counts:
+label
+reliable    449
+fake        553
+Name: count, dtype: int64
+
+Fitting preprocessor and saving to models\logreg_metadata_preprocessor.joblib
+
+Transforming datasets into TF-IDF features...
+
+Training GPU model and saving to models\logreg_metadata_torch.pt
+Validation F1 for C=0.01: 0.9991
+Validation F1 for C=0.1: 0.9991
+Validation F1 for C=1: 0.9991
+Validation F1 for C=10: 0.9991
+
+Best C selected on validation set: 0.01
+Best validation F1: 0.9991
 
 Validation results
 ------------------------------
-Accuracy : 0.9985
+Accuracy : 0.9990
 Precision: 0.9993
-Recall   : 0.9981
-F1-score : 0.9987
+Recall   : 0.9989
+F1-score : 0.9991
+
+Confusion matrix:
+[[111284    116]
+ [   166 157851]]
 
 Classification report:
               precision    recall  f1-score   support
@@ -38,12 +83,16 @@ Classification report:
 weighted avg       1.00      1.00      1.00    269417
 
 
-Test results
+FakeNewsCorpus test results
 ------------------------------
-Accuracy : 0.9982
-Precision: 0.9992
-Recall   : 0.9978
-F1-score : 0.9985
+Accuracy : 0.9988
+Precision: 0.9991
+Recall   : 0.9988
+F1-score : 0.9990
+
+Confusion matrix:
+[[111264    137]
+ [   190 157827]]
 
 Classification report:
               precision    recall  f1-score   support
@@ -54,3 +103,25 @@ Classification report:
     accuracy                           1.00    269418
    macro avg       1.00      1.00      1.00    269418
 weighted avg       1.00      1.00      1.00    269418
+
+
+LIAR test results
+------------------------------
+Accuracy : 0.5659
+Precision: 0.5787
+Recall   : 0.7848
+F1-score : 0.6662
+
+Confusion matrix:
+[[133 316]
+ [119 434]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    reliable       0.53      0.30      0.38       449
+        fake       0.58      0.78      0.67       553
+
+    accuracy                           0.57      1002
+   macro avg       0.55      0.54      0.52      1002
+weighted avg       0.56      0.57      0.54      1002
