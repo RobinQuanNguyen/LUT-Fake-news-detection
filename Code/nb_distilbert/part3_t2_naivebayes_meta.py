@@ -1,5 +1,5 @@
 '''
-Part 2 Task 2 - Naive Bayes Baseline with Metadata Features
+Part 3 Task 2 - Naive Bayes Baseline with Metadata Features
 Approach: Append domain, title, authors to processed_text before TF-IDF
           This lets the model learn from both text and metadata signals.
 
