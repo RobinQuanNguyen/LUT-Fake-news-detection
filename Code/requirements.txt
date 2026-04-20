@@ -8,3 +8,4 @@ scikit-learn
 torch
 transformers
 tqdm
+seaborn
