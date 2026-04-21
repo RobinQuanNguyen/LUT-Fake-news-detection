@@ -1,7 +1,7 @@
 ============================================================
-LinearSVC (ENHANCED BINARY) - RESULTS REPORT
+SGDClassifier (ENHANCED BINARY) - RESULTS REPORT
 ============================================================
-Model               : LinearSVC
+Model               : SGDClassifier
 Max features       : 100,000
 N-gram range       : (1, 3)
 min_df / max_df    : 3 / 0.9
