@@ -1,13 +1,10 @@
 # Simple Baseline Models - SGDClassifier and LinearSVC Reports
-**Files:** `part3_t1_linear_regression_no_meta_data.py`, `part3_t1_linear_regression_meta_data.py`, `part3_t1_liar_test.py`, `part3_no_meta.txt`, `part3_meta.txt`, `part3_with_liar.txt`  
+**Files:** `part3_t1_linear_regression_no_meta_data.py`, `part3_t1_linear_regression_meta_data.py`, `part3_t1_liar_test.py`  
 **Tasks covered:** Part 3 text-only baseline, Part 3 metadata baseline, and cross-dataset evaluation on LIAR
 
 ---
 
 ## What was built and why
-
-### Important naming note
-The two Python filenames keep the phrase `linear_regression`, but the actual code inside both scripts trains **`SGDClassifier`** with sparse TF-IDF features and incremental `partial_fit` training. The uploaded `.txt` result reports for `part3_no_meta.txt` and `part3_meta.txt` are **LinearSVC** reports, so this README documents them separately instead of treating them as the same experiment.
 
 ---
 
@@ -135,15 +132,6 @@ That means rerunning one script after the other can overwrite earlier saved arti
 
 ---
 
-### Uploaded report files
-The uploaded `.txt` reports appear to document a **different linear baseline family** from the SGD scripts:
-
-- `part3_no_meta.txt` reports **LinearSVC** with text-only TF-IDF features.
-- `part3_meta.txt` reports **LinearSVC** with `processed_text + title` features.
-- `part3_with_liar.txt` reports **SGDClassifier** evaluated on LIAR.
-
-Because of that, the README keeps the code description and the uploaded reports clearly separated.
-
 ---
 
 ## How to run the scripts
@@ -201,7 +189,6 @@ python part3_t1_liar_test.py
 - `data/train.csv`
 - `data/validate.csv`
 - `data/test.tsv` if testing on LIAR
-- optional fallback: `data/test.csv`
 
 **Saved artifacts**
 - `outputs/part3_text/models/sgd_model.pkl`
@@ -227,8 +214,8 @@ Only the following metrics are included here, because these are the result files
 
 | Report file | Model | Metadata | Accuracy | Precision | Recall | F1 |
 |---|---|---|---:|---:|---:|---:|
-| `part3_no_meta.txt` | LinearSVC | No | 0.9563 | 0.9614 | 0.9642 | 0.9628 |
-| `part3_meta.txt` | LinearSVC | Yes (`title`) | 0.9607 | 0.9641 | 0.9691 | 0.9666 |
+| `part3_no_meta.txt` | SGDClassifier | No | 0.9563 | 0.9614 | 0.9642 | 0.9628 |
+| `part3_meta.txt` | SGDClassifier | Yes (`title`) | 0.9607 | 0.9641 | 0.9691 | 0.9666 |
 
 #### LIAR test set
 
@@ -246,10 +233,9 @@ Only the following metrics are included here, because these are the result files
 
 ## Future improvements
 
-1. Rename the Python files so their names match the real model used in code.
-2. Separate output folders for full-dataset testing and LIAR testing to avoid overwriting reports.
-3. Save full classification reports for all experiments, not only summary metrics.
-4. Add command-line arguments for paths, batch size, epochs, and output folder names.
-5. Expand metadata experiments beyond `title`, for example `domain`, `author`, or other source fields if available.
-6. Evaluate the same feature settings across both SGDClassifier and LinearSVC for a cleaner comparison.
-7. Add probability calibration or threshold analysis if later models need more stable confidence behavior.
+1. Separate output folders for full-dataset testing and LIAR testing to avoid overwriting reports.
+2. Save full classification reports for all experiments, not only summary metrics.
+3. Add command-line arguments for paths, batch size, epochs, and output folder names.
+4. Expand metadata experiments beyond `title`, for example `domain`, `author`, or other source fields if available.
+5. Evaluate the same feature settings across both SGDClassifier and LinearSVC for a cleaner comparison.
+6. Add probability calibration or threshold analysis if later models need more stable confidence behavior.
