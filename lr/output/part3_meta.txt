@@ -1,7 +1,7 @@
 ============================================================
-LinearSVC (ENHANCED BINARY + METADATA) - RESULTS REPORT
+SGDClassifier (ENHANCED BINARY + METADATA) - RESULTS REPORT
 ============================================================
-Model               : LinearSVC
+Model               : SGDClassifier
 Text max features   : 100,000
 Text n-gram range   : (1, 3)
 Text min_df / max_df: 3 / 0.9
