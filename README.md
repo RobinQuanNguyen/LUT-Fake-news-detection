@@ -21,6 +21,8 @@ This project builds a fake news classifier using the FakeNewsCorpus dataset. The
   Contains the Logistic Regression baseline models and the RoBERTa advanced model.
 - [`nb_distilbert/`](./nb_distilbert)
   Contains the Naive Bayes baseline models and the DistilBERT advanced model.
+- [`lr/`](./lr)
+  Contains the Linear Regression baseline models and the advanced model.
 
 ## Quick start
 
