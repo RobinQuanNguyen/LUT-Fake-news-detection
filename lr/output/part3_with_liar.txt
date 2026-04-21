@@ -1,0 +1,27 @@
+======================================================================
+SGDClassifier - RESULTS REPORT
+======================================================================
+Model               : SGDClassifier
+Max features        : 150,000
+N-gram range        : (1, 2)
+min_df / max_df     : 5 / 0.9
+Alpha (reg)         : 0.0001
+Batch size          : 50,000
+Test source         : LIAR test.tsv
+
+Dataset sizes:
+  Train: 2,155,342
+  Validation: 269,417
+  Test: 1,002
+
+Split          Accuracy     Precision(F)   Recall(F)      F1(F)
+----------------------------------------------------------------------
+validation     0.9391      0.9396         0.9577         0.9485
+test           0.5529      0.5782         0.7016         0.6340
+
+======================================================================
+CONFUSION MATRIX (Test Set)
+======================================================================
+              FAKE (0)  RELIABLE (1)
+FAKE (0)           388           165
+RELIABLE (1)       283           166
